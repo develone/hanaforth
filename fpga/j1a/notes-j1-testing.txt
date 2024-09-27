@@ -1,0 +1,13 @@
+devel@pi5-80:$ git clone https://github.com/develone/hanaforth.git -b dev
+
+devel@pi5-80: $ cd hanaforth/fpga/j1a/
+
+devel@pi5-80:~/hanaforth/fpga/j1a $ bin2uf2 -o test-top.uf2 j1a.bin
+
+devel@pi5-80:~/hanaforth/fpga/j1a $ uf2dump test-top.uf2 > uf2dump.txt
+
+rm -f /media/devel/pico-ice/test-top.uf2
+
+cp test-top.uf2 /media/devel/pico-ice/
+
+devel@pi5-80:~/hanaforth/fpga/j1a $ sudo /home/devel/picocom/picocom --buad 115200 /dev/ttyAMC1
